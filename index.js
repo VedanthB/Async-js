@@ -66,18 +66,20 @@ console.log(2)
 const getTodos = async () => {
    
     const response = await fetch('mario.json')
+    
+    if(response.status !== 200) {
+        throw new Error('resourse not found')
+    }
+
     const data = await response.json()
     
-    const response2 = await fetch('todos.json')
-    const data2 = await response2.json()
-  
-    const response3 = await fetch('lugi.json')
-    const data3 = await response3.json()
+    
 
-    return data ,data2 ,data3
+    return data 
 }
 
 getTodos()
  .then((data) => console.log('resolved:', data))
+ .catch((err) => console.log(err.message))
 
 console.log(3)
