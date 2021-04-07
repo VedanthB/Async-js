@@ -50,11 +50,34 @@
 // console.log(3)
 // console.log(4)
 
-fetch('lugi.json').then((response) => {
-    console.log(response)
-    return response.json() // response.json() is a promise
-}).then(data => {
-    console.log(data)
-}).catch(err => {
-    console.log('rejected', err)
-})
+// fetch('lugi.json').then((response) => {
+//     console.log(response)
+//     return response.json() // response.json() is a promise
+// }).then(data => {
+//     console.log(data)
+// }).catch(err => {
+//     console.log('rejected', err)
+// })
+
+
+console.log(1)
+console.log(2)
+
+const getTodos = async () => {
+   
+    const response = await fetch('mario.json')
+    const data = await response.json()
+    
+    const response2 = await fetch('todos.json')
+    const data2 = await response2.json()
+  
+    const response3 = await fetch('lugi.json')
+    const data3 = await response3.json()
+
+    return data ,data2 ,data3
+}
+
+getTodos()
+ .then((data) => console.log('resolved:', data))
+
+console.log(3)
